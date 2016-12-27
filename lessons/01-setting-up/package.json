@@ -6,7 +6,10 @@
   "scripts": {
     "start": "npm run start:dev",
     "start:dev": "webpack-dev-server --inline --content-base public --history-api-fallback",
-    "start:prod": "NODE_ENV=production webpack && node server.js"
+    "start:prod": "NODE_ENV=production npm run build && node server.bundle.js",
+    "build:client": "webpack",
+    "build:server": "webpack --config webpack.server.config.js",
+    "build": "npm run build:client && npm run build:server"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +25,6 @@
     "babel-preset-react": "^6.5.0",
     "http-server": "^0.8.5",
     "webpack": "^1.12.13",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.16.2"
   }
 }
